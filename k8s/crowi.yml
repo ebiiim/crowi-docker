@@ -1,0 +1,61 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crowi-svc
+  labels:
+    app: crowi-app
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: crowi-app
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crowi-app
+  labels:
+    app: crowi-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: crowi-app
+  template:
+    metadata:
+      labels:
+        app: crowi-app
+    spec:
+      containers:
+        - name: crowi-svr
+          image: ghcr.io/ebiiim/crowi-docker:1.0.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: ELASTICSEARCH_URI
+              value: http://crowi-es:9200
+            - name: REDIS_URL
+              value: redis://crowi-redis:6379
+            - name: NODE_ENV
+              value: production
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: crowi-svr-secret
+                  key: mongoUri
+            - name: PASSWORD_SEED
+              valueFrom:
+                secretKeyRef:
+                  name: crowi-svr-secret
+                  key: passwordSeed
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "1000m"
