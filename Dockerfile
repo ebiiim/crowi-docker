@@ -12,6 +12,6 @@ RUN rm /app/crowi/public/nginx-mime.types
 FROM node:12-buster-slim
 LABEL org.opencontainers.image.source https://github.com/ebiiim/crowi-docker
 COPY --from=builder /app/crowi/ /app/crowi/
-COPY ./assets/ /app/crowi/public/
+COPY run.sh /app/crowi/
 WORKDIR /app/crowi/
-ENTRYPOINT [ "npm", "start" ]
+ENTRYPOINT [ "./run.sh", "serve" ]
