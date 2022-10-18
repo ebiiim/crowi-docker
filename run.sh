@@ -1,7 +1,5 @@
 #!/bin/sh
 
-VERSION=$(git describe --tags --match "v*")
-VERSION=${VERSION:-"dev"}
 SKIP_CONFIRM=false
 
 usage() {
@@ -16,7 +14,6 @@ Options:
     --yes, -y       skip confirmations
     --debug, -d     print all executed commands (set -x)
     --help, -h      print this message
-    --version, -v   print version
 EOF
 }
 
@@ -79,10 +76,6 @@ do
 
         --help|-h)
             usage
-        ;;
-
-        --version|-v)
-            echo "$(basename "$0") $VERSION"
         ;;
 
         *)
