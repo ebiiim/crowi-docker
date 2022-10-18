@@ -51,19 +51,8 @@ spec:
             - name: ICON_ANDROID_1
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/android-chrome-192x192.png"
           command:
-            - "sh"
-            - "-c"
-            - |
-              cd /app/crowi/public/
-              && curl -LO $ICON_FAV_1
-              && curl -LO $ICON_FAV_2
-              && curl -LO $ICON_FAV_3
-              && curl -LO $ICON_FAV_4
-              && curl -LO $ICON_IOS_1
-              && curl -LO $ICON_IOS_2
-              && curl -LO $ICON_IOS_3
-              && curl -LO $ICON_IOS_4
-              && curl -LO $ICON_ANDROID_1
+            - "./run.sh"
+            - "load-assets"
       containers:
         - name: crowi-svr
           image: ghcr.io/ebiiim/crowi-docker:1.2.0
