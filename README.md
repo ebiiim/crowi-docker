@@ -6,6 +6,11 @@
 
 ## Changelog
 
+### 1.2.0 - 2022-10-18
+
+- Crowi: [1c9324a4b1649f0534a75118c375f38cfdbc002d](https://github.com/crowi/crowi/tree/1c9324a4b1649f0534a75118c375f38cfdbc002d) 2022-10-16
+- load icons with run.sh instead of pushing them into the image
+
 ### 1.1.1 - 2022-05-10
 
 - white background for app icons
