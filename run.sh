@@ -1,6 +1,7 @@
 #!/bin/sh
 
 SKIP_CONFIRM=false
+CROWI_DIR_PUBLIC=/app/crowi/public
 
 usage() {
     cat <<EOF
@@ -8,7 +9,7 @@ Usage: $0 [option]... <command>
 
 Commands:
     serve           do npm start
-    load-assets     download assets from env \$ICON_*
+    load-assets     download assets from URLs specified in env \$ASSETS_*
 
 Options:
     --yes, -y       skip confirmations
@@ -38,6 +39,20 @@ check_command_exists_or_exit1() {
     fi
 }
 
+# Usage: download_if_env_exists <ENVIRONMENT_VARIABLE_NAME>
+# Example: download_if_env_exists URL_FAVICON
+download_if_env_exists() {
+    _key=\$"$1"
+    _val=$(eval "echo $_key")
+    if [ "$_val" ]
+    then
+        echo "load-assets: download $_key from $_val"
+        curl -LO "$_val"
+    else
+        echo "load-assets: skip $_key"
+    fi
+}
+
 if [ $# -eq 0 ] ; then
     usage
     exit 1
@@ -52,18 +67,16 @@ do
         ;;
 
         load-assets)
-            apt update
-            apt install -y curl
-            cd /app/crowi/public/ || exit 1
-            curl -LO "$ICON_FAV_1" || true
-            curl -LO "$ICON_FAV_2" || true
-            curl -LO "$ICON_FAV_3" || true
-            curl -LO "$ICON_FAV_4" || true
-            curl -LO "$ICON_IOS_1" || true
-            curl -LO "$ICON_IOS_2" || true
-            curl -LO "$ICON_IOS_3" || true
-            curl -LO "$ICON_IOS_4" || true
-            curl -LO "$ICON_ANDROID_1" || true
+            cd $CROWI_DIR_PUBLIC || exit 1
+            download_if_env_exists ASSETS_ICON_FAV_1
+            download_if_env_exists ASSETS_ICON_FAV_2
+            download_if_env_exists ASSETS_ICON_FAV_3
+            download_if_env_exists ASSETS_ICON_FAV_4
+            download_if_env_exists ASSETS_ICON_IOS_1
+            download_if_env_exists ASSETS_ICON_IOS_2
+            download_if_env_exists ASSETS_ICON_IOS_3
+            download_if_env_exists ASSETS_ICON_IOS_4
+            download_if_env_exists ASSETS_ICON_IOS_5
         ;;
 
         --yes|-y)

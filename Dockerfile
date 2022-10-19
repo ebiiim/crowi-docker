@@ -1,4 +1,4 @@
-FROM node:12-buster as builder
+FROM node:12-bullseye as builder
 WORKDIR /app/
 RUN git clone https://github.com/crowi/crowi.git
 WORKDIR /app/crowi/
@@ -9,9 +9,14 @@ RUN npm run build
 RUN rm /app/crowi/public/nginx.conf
 RUN rm /app/crowi/public/nginx-mime.types
 
-FROM node:12-buster-slim
+FROM node:12-bullseye-slim
 LABEL org.opencontainers.image.source https://github.com/ebiiim/crowi-docker
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    curl \
+    && apt-get -y clean \
+    && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /app/crowi/ /app/crowi/
 COPY run.sh /app/crowi/
 WORKDIR /app/crowi/
-ENTRYPOINT [ "./run.sh", "serve" ]
+ENTRYPOINT [ "./run.sh" ]

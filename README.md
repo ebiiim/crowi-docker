@@ -1,10 +1,35 @@
 # Crowi Docker image
 
-- v1.8.0-dev
-- MongoDB Atlas supported
-- K8s examples
+- Using the latest Crowi that supports MongoDB Atlas
+- With custom favicon loader
+- With K8s examples
+
+## Usage
+
+### Docker
+
+Listen on port 3000:
+
+```sh
+docker run ghcr.io/ebiiim/crowi-docker:1.3.0 serve
+```
+
+Show help:
+
+```sh
+docker run ghcr.io/ebiiim/crowi-docker:1.3.0 --help
+```
+
+### Kubernetes
+
+See [crowi.yml](k8s/crowi.yml)
 
 ## Changelog
+
+### 1.3.0 - 2022-10-19
+
+- upgrade base images buster->bullseye
+- change assets environment variables name
 
 ### 1.2.0 - 2022-10-18
 

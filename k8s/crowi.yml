@@ -34,27 +34,27 @@ spec:
             - "/bin/sh"
             - "-c"
             - "./run.sh load-assets && ./run.sh serve"
-          image: ghcr.io/ebiiim/crowi-docker:1.2.0
+          image: ghcr.io/ebiiim/crowi-docker:1.3.0
           ports:
             - containerPort: 3000
           env:
-            - name: ICON_FAV_1
+            - name: ASSETS_ICON_FAV_1
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/favicon.ico"
-            - name: ICON_FAV_2
+            - name: ASSETS_ICON_FAV_2
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/favicon-16x16.png"
-            - name: ICON_FAV_3
+            - name: ASSETS_ICON_FAV_3
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/favicon-32x32.png"
-            - name: ICON_FAV_4
+            - name: ASSETS_ICON_FAV_4
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/favicon-96x96.png"
-            - name: ICON_IOS_1
+            - name: ASSETS_ICON_IOS_1
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/apple-touch-icon.png"
-            - name: ICON_IOS_2
+            - name: ASSETS_ICON_IOS_2
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/apple-touch-icon-72x72.png"
-            - name: ICON_IOS_3
+            - name: ASSETS_ICON_IOS_3
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/apple-touch-icon-120x120.png"
-            - name: ICON_IOS_4
+            - name: ASSETS_ICON_IOS_4
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/apple-touch-icon-180x180.png"
-            - name: ICON_ANDROID_1
+            - name: ASSETS_ICON_ANDROID_1
               value: "https://raw.githubusercontent.com/ebiiim/crowi-docker/main/assets/android-chrome-192x192.png"
             - name: PORT
               value: "3000"
