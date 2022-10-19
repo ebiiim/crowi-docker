@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
         - name: crowi-svr
-          image: ghcr.io/ebiiim/crowi-docker:1.3.1
+          image: ghcr.io/ebiiim/crowi-docker:1.3.2
           ports:
             - containerPort: 3000
           env:

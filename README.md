@@ -26,6 +26,10 @@ See [crowi.yml](k8s/crowi.yml)
 
 ## Changelog
 
+### 1.3.2 - 2022-10-19
+
+- fix Android icon loading
+
 ### 1.3.1 - 2022-10-19
 
 - K8s now use default entrypoint in Dockerfile

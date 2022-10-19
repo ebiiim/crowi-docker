@@ -67,7 +67,7 @@ do_load_assets() {
     download_if_env_exists ASSETS_ICON_IOS_2
     download_if_env_exists ASSETS_ICON_IOS_3
     download_if_env_exists ASSETS_ICON_IOS_4
-    download_if_env_exists ASSETS_ICON_IOS_5
+    download_if_env_exists ASSETS_ICON_ANDROID_1
     cd - || exit 1
 }
 
