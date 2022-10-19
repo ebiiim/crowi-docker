@@ -29,6 +29,7 @@ See [crowi.yml](k8s/crowi.yml)
 ### 1.3.1 - 2022-10-19
 
 - K8s now use default entrypoint in Dockerfile
+- fix missing ca-certificates
 
 ### 1.3.0 - 2022-10-19
 
