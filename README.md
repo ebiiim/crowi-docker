@@ -26,6 +26,10 @@ See [crowi.yml](k8s/crowi.yml)
 
 ## Changelog
 
+### 1.3.1 - 2022-10-19
+
+- K8s now use default entrypoint in Dockerfile
+
 ### 1.3.0 - 2022-10-19
 
 - upgrade base images buster->bullseye

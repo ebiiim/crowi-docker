@@ -53,6 +53,24 @@ download_if_env_exists() {
     fi
 }
 
+do_serve() {
+    npm run start
+}
+
+do_load_assets() {
+    cd $CROWI_DIR_PUBLIC || exit 1
+    download_if_env_exists ASSETS_ICON_FAV_1
+    download_if_env_exists ASSETS_ICON_FAV_2
+    download_if_env_exists ASSETS_ICON_FAV_3
+    download_if_env_exists ASSETS_ICON_FAV_4
+    download_if_env_exists ASSETS_ICON_IOS_1
+    download_if_env_exists ASSETS_ICON_IOS_2
+    download_if_env_exists ASSETS_ICON_IOS_3
+    download_if_env_exists ASSETS_ICON_IOS_4
+    download_if_env_exists ASSETS_ICON_IOS_5
+    cd - || exit 1
+}
+
 if [ $# -eq 0 ] ; then
     usage
     exit 1
@@ -62,21 +80,17 @@ while [ $# -gt 0 ];
 do
     case ${1} in
 
+        all)
+            do_load_assets
+            do_serve
+        ;;
+
         serve)
-            npm run start
+            do_serve
         ;;
 
         load-assets)
-            cd $CROWI_DIR_PUBLIC || exit 1
-            download_if_env_exists ASSETS_ICON_FAV_1
-            download_if_env_exists ASSETS_ICON_FAV_2
-            download_if_env_exists ASSETS_ICON_FAV_3
-            download_if_env_exists ASSETS_ICON_FAV_4
-            download_if_env_exists ASSETS_ICON_IOS_1
-            download_if_env_exists ASSETS_ICON_IOS_2
-            download_if_env_exists ASSETS_ICON_IOS_3
-            download_if_env_exists ASSETS_ICON_IOS_4
-            download_if_env_exists ASSETS_ICON_IOS_5
+            do_load_assets
         ;;
 
         --yes|-y)
