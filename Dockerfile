@@ -14,6 +14,7 @@ LABEL org.opencontainers.image.source https://github.com/ebiiim/crowi-docker
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     curl \
+    ca-certificates \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /app/crowi/ /app/crowi/
