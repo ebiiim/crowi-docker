@@ -8,6 +8,7 @@ usage() {
 Usage: $0 [option]... <command>
 
 Commands:
+    all             do load-assets and then do serve 
     serve           do npm start
     load-assets     download assets from URLs specified in env \$ASSETS_*
 

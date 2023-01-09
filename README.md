@@ -1,8 +1,8 @@
 # Crowi Docker image
 
-- Using the latest Crowi that supports MongoDB Atlas
+- Using the latest [Crowi](https://github.com/crowi/crowi) that supports MongoDB Atlas
 - With custom favicon loader
-- With K8s examples
+- With K8s manifests
 
 ## Usage
 
@@ -11,13 +11,13 @@
 Listen on port 3000:
 
 ```sh
-docker run ghcr.io/ebiiim/crowi-docker:1.3.0 serve
+docker run -p3000:3000 ghcr.io/ebiiim/crowi-docker:latest serve
 ```
 
 Show help:
 
 ```sh
-docker run ghcr.io/ebiiim/crowi-docker:1.3.0 --help
+docker run ghcr.io/ebiiim/crowi-docker:latest --help
 ```
 
 ### Kubernetes

@@ -20,4 +20,5 @@ RUN apt-get update \
 COPY --from=builder /app/crowi/ /app/crowi/
 COPY run.sh /app/crowi/
 WORKDIR /app/crowi/
-ENTRYPOINT [ "./run.sh", "all"]
+ENTRYPOINT [ "./run.sh" ]
+CMD [ "all" ]
