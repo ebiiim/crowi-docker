@@ -26,6 +26,10 @@ See [crowi.yml](k8s/crowi.yml)
 
 ## Changelog
 
+### 1.4.1 - 2023-01-09
+
+- minor fixes
+
 ### 1.4.0 - 2023-01-09
 
 - Crowi: [49bd606e492faca79efe5750a3c83daa378e77c0](https://github.com/crowi/crowi/tree/49bd606e492faca79efe5750a3c83daa378e77c0) 2022-11-04
