@@ -11,7 +11,8 @@
 Listen on port 3000:
 
 ```sh
-docker run -p3000:3000 ghcr.io/ebiiim/crowi-docker:latest serve
+# make sure you have MongoDB running
+docker run -p3000:3000 -eMONGO_URI="mongodb://<mongodb_host>:27017/crowi" ghcr.io/ebiiim/crowi-docker:latest serve
 ```
 
 Show help:
