@@ -2,7 +2,7 @@ FROM node:12-bullseye as builder
 WORKDIR /app/
 RUN git clone https://github.com/crowi/crowi.git
 WORKDIR /app/crowi/
-RUN git checkout 1c9324a4b1649f0534a75118c375f38cfdbc002d
+RUN git checkout 49bd606e492faca79efe5750a3c83daa378e77c0
 RUN npm install
 RUN npm run build
 # files should not be public

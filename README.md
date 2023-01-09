@@ -26,6 +26,11 @@ See [crowi.yml](k8s/crowi.yml)
 
 ## Changelog
 
+### 1.4.0 - 2023-01-09
+
+- Crowi: [49bd606e492faca79efe5750a3c83daa378e77c0](https://github.com/crowi/crowi/tree/49bd606e492faca79efe5750a3c83daa378e77c0) 2022-11-04
+  - image optimizations
+
 ### 1.3.2 - 2022-10-19
 
 - fix Android icon loading
