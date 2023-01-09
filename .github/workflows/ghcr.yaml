@@ -3,16 +3,22 @@ on:
     tags:
       - "v*"
 jobs:
-  build:
+  image:
+    name: Push container image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: docker/metadata-action@v4
         id: meta
         with:
+          # ghcr.io/ebiiim/crowi-docker
           images: ghcr.io/${{ github.repository }}
           tags: |
+            # v1.2.3-rc.4
+            type=semver,pattern={{raw}}
+            # 1.2.3-rc.4
             type=semver,pattern={{version}}
+            # 1.2
             type=semver,pattern={{major}}.{{minor}}
       - uses: docker/login-action@v2
         with:
